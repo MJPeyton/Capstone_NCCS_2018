@@ -20,8 +20,55 @@
 			line-height: 1.7rem;
 		}
 
+		.note {
+			padding: .5rem 1.5rem;
+			font-style: italic;
+			font-size: 1.1rem;
+			background-color: #FFFF00;
+		}
+
+		.quote {
+			font-size: 1.1rem;
+			line-height: 1.7rem;
+			padding: .5rem 3rem;
+		}
+		
+		.citation {
+			text-align: right;
+			font-size: 1.1rem;
+		}
+
 		h2{
 			font-size: 2rem;
+		}
+
+		h3{
+			font-size: 1.6rem;
+		}
+
+		h4{
+			font-size: 1.2rem;
+		}
+
+		input[type=text], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		button {
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
 		}
 
 	</style>
@@ -32,44 +79,170 @@
 		<img src="https://nccs.urban.org/sites/default/files/2018-09/urban-institute-logo.png" alt="Urban Institute Logo">
 	</a>
 	<p>
-		Every year the Urban Institute’s National Center for Charitable Statistics (NCCS) collects, cleans, and shares data for researchers and policy makers in order to make better, data-informed decisions. As a part of that annual production, they release a year in brief report that offers an overview of where things stand that year. My project is to make that brief more informative and engaging by presenting the data in a visual format while also providing some context, so readers are better able to absorb the information and internalize it.
+		Every year the Urban Institute’s National Center for Charitable Statistics (NCCS) collects, cleans, and shares data for researchers and policy makers in order to make better, data-informed decisions. As a part of that annual production, they release a <a href="https://nccs.urban.org/publication/nonprofit-sector-brief-2018">year in brief report</a>.
+	<p>	
+		My project is to make that brief more informative and engaging by presenting the data in a visual format while also providing some context, so readers are better able to absorb the information and internalize it.
+	
+	<h4>A note about the timeframe: </h4>
+	
+	<p>
+		The reason the latest numbers available here is due to a lag between when financial documents are required to be submitted and when they are available, cleaned, and made available by the NCCS. 
 	</p>
 	<section>
-		<h2>Nonprofit Size</h2>
+	<section>
+		<div class="note">
+		<p><b>Everything in a yellow box is a note to myself that will be removed or replaced before production.</b></p>
+		<h2>To Do List</h2>
+		<ul>
+			<li>Design a header</li>
+			<li>Replace Excel graphics with interactive D3</li>
+		</ul>
+		</div>
+	</section>
+		<h2>The Nonprofit Universe</h2>
 			<article>
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+				<p>As of 2015, there were 1.56 million nonprofits in the United States.</p>
+
+				<p>That is roughly equivalent to the number of __________.</p>
+
 				<img src="charts\Figure1.1.png">
 
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+				<div class="note">Change chart above to be # of nonprofits and # of ________.</div>
+				
+				<p>That number has grown roughly 15% since 2005 and 7% since 2010. However, that number might not mean what you think it does, because not all nonprofits are the same.</p>
 				<img src="charts\Figure1.2.png">
 
-				<h3>Nonprofits vs Public Charities</h3>
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+			<h3>Nonprofits vs Public Charities</h3>
+				
+				<p>When we say nonprofit, we are really talking about an umbrella term for a lot of different types of organizations.</p>
+
+				<div class="quote">The term “nonprofit” means different things to many different people. It’s a commonly used word without a common understanding between writer and reader. People often use the words “nonprofit” and “tax exempt” interchangeably. Congress has created almost three dozen types of tax-exempt organizations in different sections of the tax code. These include Section 501(c)(4) (social welfare organizations, homeowners associations, and volunteer fire companies), Section 501(c)(5) (includes labor unions), Section 501(c)(6) (includes chambers of commerce), and Section 501(k) (child care organizations). Each section identifies certain conditions that must be met to be exempt from paying federal income taxes. The one common condition is not paying out profits (“no part of the organization’s net earnings can inure to the benefit of any private shareholder or individual”); hence the term, “nonprofit.” Section 501(c)(3) of the tax code refers to “public charities” (also known as charitable nonprofits) and “private foundations.” The tax code considers “churches and religious organizations” (which the IRS defines to include mosques, synagogues, temples, and other houses of worship) to be "public charities.”
+				
+				<div class="citation">[1]https://www.councilofnonprofits.org/what-is-a-nonprofit</div></div>
+
+				<div class="note">Rewrite above in my own language</div>
+
+				<p>When people use the term "Nonprofit" vernacularly, they are often refereing to public charities.
+
+				<p>For example, the following are public charities:
+				<ul>
+					<li>United Way</li>
+					<li>Habitat for Humanity</li>
+					<li>The YMCA</li>
+					<li>St. Jude Children's Research Hospital</li>
+				</ul>
+
+				<p>Conversely, the following are nonprofits, but not public charities:
+				<ul>
+					<li>Teacher retirement funds</li>
+					<li>Cemetary companies</li>
+					<li>Social and recreation clubs</li>
+					<li>Chambers of commerce</li>
+				</ul>
+
+				<div class="source">https://www.charitynavigator.org/index.cfm?bay=content.view&cpid=1559</div>
+
+				<div class="note">Design visually with logos instead of just text.</div>
+
+				<p>For the rest of this discussion, we are going to focus on public charities...</p>
+
 				<img src="charts\Figure1.3.png">
 
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+				<p>...but not <i>all</i> public charities.</p>
+
+				<p>You see, not all public charities are required to submit the same documentation to the government. We only have access to the finances from public charities that were required to file a Form 990, Form 990-EZ or Form 990-PF.
+
+				<h4>Who has to file a Form 990?</h4>
+
+				<div class="quote">All private foundations, regardless of size, are required to file a Form 990-PF. Before tax year 2010, nonprofits with gross receipts of $25,000 or more (excluding religious congregations) were required to file a Form 990 or Form 990-EZ. Beginning in 2010, only organizations with $50,000 or more in gross receipts (excluding religious congregations) are required to file a Form 990 or Form 990-EZ. Organizations with less than $50,000 in gross receipts are required to file an information return known as the Form 990-N (e-Postcard). Filing requirements by year are available at “Form 990 Series Which Forms Do Exempt Organizations File Filing Phase In,” Internal Revenue Service, accessed May 1, 2018, https://www.irs.gov/charities-non-profits/form-990-series-which-forms-do-exempt-organizations-file-filing-phase-in.</div>
+
+				<div class="citation">https://nccs.urban.org/publication/nonprofit-sector-brief-2018</div>
+
+				<div class="note">Rewrite above in my own language</div>
+
+				<p>So for the rest of the deep dive, we're looking at <i>reporting</i> public charities.
+				<br></br>
 				<img src="charts\Figure1.4.png">
 			</article>
 			<article>
 				<h3>Public Charities by Type</h3>
 				
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+				<p>As you might expect, there is a great amount of diversity in the types of public charities. Below is a breakdown of the number of reporting public charities in 2015 by type of work they perform.</p>
 				<img src="charts\Figure3.1.png">
 				
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+				<p>Between 2005 and 2015 there has been a large shift in the number of reporting public charities by type. For instance, there was 17% growith in the number of intenrational organizations over that 10 year period, while there was a 9.7% decreaese in the number of arts organizations in the same period.</p>
 				<img src="charts\Figure3.2.png">
 			</article>
 	</section>
 	<section>
 			<h2>Finances</h2>
 				<article>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+					<p>Over the 10 year period from 2005 to 2015, the revenue, expenses, and assets of reporting public charities have increased. </p>
 					<img src="charts\Figure2.1.png">
 				</article>
 				<article>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem doloremque sint eos corrupti debitis. Quas, tenetur sequi totam dolorum repellat expedita qui impedit dolor. Vero dolore illum voluptates rerum porro.</p>
+					<p>However, the growth has not been consistent across types of organization. As you can see below, _____ and _____ organizations have seen a much larger increase in revenue and assets over this 10 year period than _____ and ______.</p>
 					<img src="charts\Figure3.3.png">
-				</article>
+					<div class="note">I like the idea of using <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> to breakout all of the different categories, but if I use the actual numbers, the discrepency makes many of the smaller categories unreadable. If I use percentages, as I've started to do here, I don't think it's very clear what I'm showing. SO I need to spend more time with this visualization.</div>
+				</article>	
 	</section>
+
+	<section>
+		<h2>Conclusion</h2>
+			<article>
+				<div class="note">Need to write this</div>
+			</article>
+	</section>
+
+	<section>
+		<h2>Further Research</h2>
+			<article>
+			<p>Interested in searching for the Form 990 of a specific nonprofit?
+
+			<p>Enter the organization name in the form below to see if the IRS has a copy of their recent forms on file. 
+
+		<div>
+		<form name="searchForm" id="mainSearchPage" method="get" target="_blank" action="https://apps.irs.gov/app/eos/returnsSearch.do">
+		<input 	class="form-text form-control" 
+				type="text" 
+				id="names" 
+				name="names" 
+				size="30" 
+				maxlength="128" 
+				placeholder="Enter Organization Name" 
+				aria-label="Enter Organization Name">
+
+					<input type="hidden" name="resultsPerPage" value="25">
+					<input type="hidden" name="indexOfFirstRow" value="0">
+					<input type="hidden" name="dispatchMethod" value="searchCopyOfReturns">
+					<input type="hidden" name="sortColumn" value="orgName">
+					<input type="hidden" name="isDescending" value="false">
+
+		<button  		
+				class="button" 
+				type="submit" 
+				value="Search" 
+				name="submitName">
+				Search
+		</button>
+		</form>
+		</div>
+		</br>
+		</br>
+			<div class="citation">https://www.irs.gov/charities-non-profits/tax-exempt-organization-search</div>
+
+			</article>
+	</section>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	<div class="note">Need a footer</div>
 </body>
 </html>
+
+
+
