@@ -27,7 +27,7 @@ var svg = d3.select("#one.vis").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("http://127.0.0.1:5500/data/bar-data.csv", function(error, data) {
+d3.csv("/data/bar-data.csv", function(error, data) {
 
     data.forEach(function(d) {
         d.date = parseDate(d.date);
