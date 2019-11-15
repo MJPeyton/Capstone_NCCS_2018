@@ -5,15 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<title>Rough Draft of 2018 Nonprofit Brief</title>
 	<style>
 		body {
 			max-width: 700px;
   			margin: auto;
+			padding: 30px;
+			
 		}
 		img {
+			width: 100%;
+  			height: auto;
 			max-width: 700px;
 			margin: auto;
 		}
@@ -77,7 +87,6 @@
 		.vis {
 			width: 100%;
 			height: 500px;
-			outline: 2px dashed blue;
 		}
 
 	</style>
@@ -103,6 +112,7 @@
 		<p><b>Everything in a yellow box is a note to myself that will be removed or replaced before production.</b></p>
 		<h2>To Do List</h2>
 		<ul>
+			<li><a href="https://developers.google.com/chart/interactive/docs/basic_multiple_charts">Code for multiple charts on one page</a></li>
 			<li>Design a header</li>
 			<li>Replace Excel graphics with interactive D3</li>
 		</ul>
@@ -112,17 +122,20 @@
 			<article>
 				<p>As of 2015, there were 1.56 million nonprofits in the United States.</p>
 
-				<p>That is roughly equivalent to the number of __________.</p>
+				<p>To give you some idea of what that means, in </p>
 
-				<!--
-				<div class="vis" id="one"></div>
-				<script src="d3\chart1.js"></script>-->
+				<div class = "vis" id="test"></div>
+
+				<div class = "vis" id="one"></div>
 
 				<img src="charts\Figure1.1.png">
 
 				<div class="note">Change chart above to be # of nonprofits and # of ________.</div>
 				
 				<p>That number has grown roughly 15% since 2005 and 7% since 2010. However, that number might not mean what you think it does, because not all nonprofits are the same.</p>
+				
+				<div class = "vis" id="two"></div>
+				
 				<img src="charts\Figure1.2.png">
 
 			<h3>Nonprofits vs Public Charities</h3>
@@ -159,6 +172,8 @@
 
 				<p>For the rest of this discussion, we are going to focus on public charities...</p>
 
+				<div class = "vis" id="three"></div>
+
 				<img src="charts\Figure1.3.png">
 
 				<p>...but not <i>all</i> public charities.</p>
@@ -175,15 +190,24 @@
 
 				<p>So for the rest of the deep dive, we're looking at <i>reporting</i> public charities.
 				<br></br>
+
+				<div class = "vis" id="four"></div>
+
 				<img src="charts\Figure1.4.png">
 			</article>
 			<article>
 				<h3>Public Charities by Type</h3>
 				
 				<p>As you might expect, there is a great amount of diversity in the types of public charities. Below is a breakdown of the number of reporting public charities in 2015 by type of work they perform.</p>
+				
+				<div class = "vis" id="five"></div>
+				
 				<img src="charts\Figure3.1.png">
 				
 				<p>Between 2005 and 2015 there has been a large shift in the number of reporting public charities by type. For instance, there was 17% growith in the number of intenrational organizations over that 10 year period, while there was a 9.7% decreaese in the number of arts organizations in the same period.</p>
+				
+				<div class = "vis" id="six"></div>
+				
 				<img src="charts\Figure3.2.png">
 			</article>
 	</section>
@@ -191,11 +215,18 @@
 			<h2>Finances</h2>
 				<article>
 					<p>Over the 10 year period from 2005 to 2015, the revenue, expenses, and assets of reporting public charities have increased. </p>
+					
+					<div class = "vis" id="seven"></div>
+					
 					<img src="charts\Figure2.1.png">
 				</article>
 				<article>
 					<p>However, the growth has not been consistent across types of organization. As you can see below, _____ and _____ organizations have seen a much larger increase in revenue and assets over this 10 year period than _____ and ______.</p>
+					
+					<div class = "vis" id="eight"></div>
+					
 					<img src="charts\Figure3.3.png">
+					
 					<div class="note">I like the idea of using <a href="https://en.wikipedia.org/wiki/Small_multiple">small multiples</a> to breakout all of the different categories, but if I use the actual numbers, the discrepency makes many of the smaller categories unreadable. If I use percentages, as I've started to do here, I don't think it's very clear what I'm showing. SO I need to spend more time with this visualization.</div>
 				</article>	
 	</section>
@@ -254,6 +285,36 @@
 	</br>
 	</br>
 	<div class="note">Need a footer</div>
+
+	<script type="text/javascript">
+		// Load google charts
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+		
+		// Draw the chart and set the chart values
+		function drawChart() {
+		  var data = google.visualization.arrayToDataTable([
+		  ['Task', 'Hours per Day'],
+		  ['Work', 8],
+		  ['Eat', 2],
+		  ['TV', 4],
+		  ['Gym', 2],
+		  ['Sleep', 8]
+		]);
+		
+		  // Optional; add a title and set the width and height of the chart
+		  var options = {'title':'My Average Day'};
+		
+		  // Display the chart inside the <div> element with id="piechart"
+		  var chart = new google.visualization.PieChart(document.getElementById('test'));
+		  chart.draw(data, options);
+		}
+
+		$(window).resize(function(){
+		  drawChart();
+		});
+	</script>
+
 </body>
 </html>
 
