@@ -10,6 +10,8 @@
 	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	crossorigin="anonymous"></script>
 
+	<link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -19,6 +21,8 @@
 			max-width: 700px;
   			margin: auto;
 			padding: 30px;
+			background-color: #F5F5F5;
+			font-family: 'Karla', sans-serif;
 			
 		}
 		img {
@@ -89,6 +93,12 @@
 			height: 500px;
 		}
 
+		.vis_stack {
+  			position: relative;
+		  	top: -500px;
+			height: 0px;
+			width: 100%;
+		}
 	</style>
 </head>
 <body>
@@ -112,9 +122,9 @@
 		<p><b>Everything in a yellow box is a note to myself that will be removed or replaced before production.</b></p>
 		<h2>To Do List</h2>
 		<ul>
-			<li><a href="https://developers.google.com/chart/interactive/docs/basic_multiple_charts">Code for multiple charts on one page</a></li>
-			<li>Design a header</li>
-			<li>Replace Excel graphics with interactive D3</li>
+			<li>Design a header + Footer</li>
+			<li>Fix source styling and links</li>
+			<li>Fix responsiveness of stacked column key</li>
 		</ul>
 		</div>
 	</section>
@@ -124,19 +134,15 @@
 
 				<p>To give you some idea of what that means, in </p>
 
-				<div class = "vis" id="test"></div>
-
 				<div class = "vis" id="one"></div>
 
-				<img src="charts\Figure1.1.png">
+				<div class = "citation">Source: <a href="">Urban Institute</a></div>
 
 				<div class="note">Change chart above to be # of nonprofits and # of ________.</div>
 				
 				<p>That number has grown roughly 15% since 2005 and 7% since 2010. However, that number might not mean what you think it does, because not all nonprofits are the same.</p>
 				
 				<div class = "vis" id="two"></div>
-				
-				<img src="charts\Figure1.2.png">
 
 			<h3>Nonprofits vs Public Charities</h3>
 				
@@ -172,9 +178,8 @@
 
 				<p>For the rest of this discussion, we are going to focus on public charities...</p>
 
-				<div class = "vis" id="three"></div>
-
-				<img src="charts\Figure1.3.png">
+				<div class = "vis" id="three_0"></div>
+				<div class = "vis_stack" id="three_1"></div>
 
 				<p>...but not <i>all</i> public charities.</p>
 
@@ -191,9 +196,10 @@
 				<p>So for the rest of the deep dive, we're looking at <i>reporting</i> public charities.
 				<br></br>
 
-				<div class = "vis" id="four"></div>
+				<div class = "vis" id="four_0"></div>
+				<div class = "vis_stack" id="four_1"></div>
+				<div class = "vis_stack" id="four_2"></div>
 
-				<img src="charts\Figure1.4.png">
 			</article>
 			<article>
 				<h3>Public Charities by Type</h3>
@@ -202,13 +208,14 @@
 				
 				<div class = "vis" id="five"></div>
 				
-				<img src="charts\Figure3.1.png">
-				
+				<div class="note">Will add descriptions in the tooltip of what each category means.</div>
+
 				<p>Between 2005 and 2015 there has been a large shift in the number of reporting public charities by type. For instance, there was 17% growith in the number of intenrational organizations over that 10 year period, while there was a 9.7% decreaese in the number of arts organizations in the same period.</p>
 				
 				<div class = "vis" id="six"></div>
 				
-				<img src="charts\Figure3.2.png">
+				<div class="note">Investigate turning this into a slope chart.</div>
+
 			</article>
 	</section>
 	<section>
@@ -286,34 +293,7 @@
 	</br>
 	<div class="note">Need a footer</div>
 
-	<script type="text/javascript">
-		// Load google charts
-		google.charts.load('current', {'packages':['corechart']});
-		google.charts.setOnLoadCallback(drawChart);
-		
-		// Draw the chart and set the chart values
-		function drawChart() {
-		  var data = google.visualization.arrayToDataTable([
-		  ['Task', 'Hours per Day'],
-		  ['Work', 8],
-		  ['Eat', 2],
-		  ['TV', 4],
-		  ['Gym', 2],
-		  ['Sleep', 8]
-		]);
-		
-		  // Optional; add a title and set the width and height of the chart
-		  var options = {'title':'My Average Day'};
-		
-		  // Display the chart inside the <div> element with id="piechart"
-		  var chart = new google.visualization.PieChart(document.getElementById('test'));
-		  chart.draw(data, options);
-		}
-
-		$(window).resize(function(){
-		  drawChart();
-		});
-	</script>
+<script type="text/javascript" src="/googlecharts.js"></script>
 
 </body>
 </html>
