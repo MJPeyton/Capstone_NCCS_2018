@@ -9,20 +9,23 @@ google.charts.setOnLoadCallback(public);
 google.charts.setOnLoadCallback(reportingpublic);
 google.charts.setOnLoadCallback(publictype);
 google.charts.setOnLoadCallback(publictypechange);
+google.charts.setOnLoadCallback(publicfinances);
+google.charts.setOnLoadCallback(publicfinancesbubble);
 
 // Chart One: Nonprofits
 function nonprofits() {
     var data = google.visualization.arrayToDataTable([
     ['Object', 'Amount', {role: 'annotation'}, {role: 'style'}],
-    ['Nonprofits in US', 1561616, "1.56 Million", "color: black"],
-    ['Something Else', 1300000, "1.3 Million", "color: blue"],
+    ['Nonprofits in US', 1561616, "1.56 Million", "color: #062635"],
+    ['Something Else', 1300000, "1.3 Million", "color: #db2b27"],
   ]);
 
   var options = {
       title:'Nonprofits Registered with the IRS',
+      titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
-      chartArea:{left: 50, right: 0, width:"100%",height:"500px"},
-      vAxis: {minValue: 0, format: "short"}, 
+      chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
+      vAxis: {minValue: 0, maxValue: 1650000, format: "short", title: "Number of Organizations"}, 
       annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
       fontName: 'Karla', 
@@ -37,16 +40,17 @@ function nonprofits() {
 function nonprofitstime() {
   var data = google.visualization.arrayToDataTable([
   ['Year', 'Amount', {role: 'annotation'}, {role: 'style'}],
-  ["2005", 1414343, "1.41 Million", "color: black"],
-  ["2010", 1493407, "1.49 Million", "color: black"],
-  ["2015", 1561616, "1.56 Million", "color: black"]
+  ["2005", 1414343, "1.41 Million", "color: #062635"],
+  ["2010", 1493407, "1.49 Million", "color: #062635"],
+  ["2015", 1561616, "1.56 Million", "color: #062635"]
 ]);
 
 var options = {
     title:'Nonprofits Registered with the IRS',
+    titleTextStyle: {fontSize: 20, color: '#062635'},
     legend: {position: "none"},
-    chartArea:{left: 50, right: 0, width:"100%",height:"500px"},
-    vAxis: {minValue: 1000000, maxValue: 1650000, format: "short"}, //Set min to 0?
+    chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
+    vAxis: {minValue: 1000000, maxValue: 1650000, format: "short", title: "Number of Organizations"}, //Set min to 0?
     annotations: {alwaysOutside: true, stemColor: 'none'},
     backgroundColor: { fill:'transparent' },
     fontName: 'Karla', 
@@ -75,16 +79,18 @@ function public() {
   
   var options0 = {
     title:'Public Entities as a part of All Nonprofits',
-    chartArea:{left: 100, right: 0, width:"100%",height:"500px"},
+    titleTextStyle: {fontSize: 20, color: 'none'},
+    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
     annotations: {alwaysOutside: true, stemColor: 'none'},
     backgroundColor: 'transparent',
-    colors: ['black'],
+    colors: ['#062635'],
     height: 500,
     legend: {
       position: 'top'
     },
     vAxis: {
       format: 'short',
+      title: "Number of Organizations",
       viewWindow: {
         min: 0,
         max: 1750000
@@ -95,11 +101,13 @@ function public() {
   };
 
   var options1 = {
-    chartArea:{left: 100, right: 0, width:"100%",height:"500px"},
+    title:'Public Entities as a part of All Nonprofits',
+    titleTextStyle: {fontSize: 20, color: '#062635'},
+    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
     annotations: {alwaysOutside: true, stemColor: 'none'},
     vAxis: {format: "short"},
     backgroundColor: 'transparent',
-    colors: ['red'],
+    colors: ['#fdbf11'],
     height: 500,
     legend: {
       position: 'top',
@@ -149,10 +157,11 @@ function reportingpublic() {
   
   var options0 = {
     title:'Reporting Public Entities as a part of All Nonprofits',
-    chartArea:{left: 100, right: 0, width:"100%",height:"500px"},
+    titleTextStyle: {fontSize: 20, color: '#062635'},
+    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
     annotations: {alwaysOutside: true, stemColor: 'none'},
     backgroundColor: 'transparent',
-    colors: ['black'],
+    colors: ['#062635'],
     height: 500,
     legend: {
       position: 'top'
@@ -169,11 +178,13 @@ function reportingpublic() {
   };
 
   var options1 = {
-    chartArea:{left: 100, right: 0, width:"100%",height:"500px"},
+    title:'Reporting Public Entities as a part of All Nonprofits',
+    titleTextStyle: {fontSize: 20, color: 'none'},
+    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
     annotations: {alwaysOutside: true, stemColor: 'none'},
     vAxis: {format: "short"},
     backgroundColor: 'transparent',
-    colors: ['red'],
+    colors: ['#fdbf11'],
     height: 500,
     legend: {
       position: 'top',
@@ -192,11 +203,13 @@ function reportingpublic() {
   };
 
   var options2 = {
-    chartArea:{left: 100, right: 0, width:"100%",height:"500px"},
+    title:'Reporting Public Entities as a part of All Nonprofits',
+    titleTextStyle: {fontSize: 20, color: 'none'},
+    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
     annotations: {alwaysOutside: true, stemColor: 'none'},
     vAxis: {format: "short"},
     backgroundColor: 'transparent',
-    colors: ['blue'],
+    colors: ['#1696d2'],
     height: 500,
     legend: {
       position: 'top',
@@ -228,30 +241,32 @@ function reportingpublic() {
 function publictype() {
   var data = google.visualization.arrayToDataTable([
     ['Type', 'Number', {role: 'annotation'}, {role: 'style'}],
-    ["Human Services",                  110801,   "111K",     "color: black"],
-    ["Education",                       54214,    "54K",      "color: black"],
-    ["Other Education",                 52061,    "52K",      "color: black"],
-    ["Health",                          38861,    "39K",      "color: black"],
-    ["Other public and social benefit", 37478,    "37K",      "color: black"],
-    ["Other health care",               31748,    "32K",      "color: black"],
-    ["Arts",                            31429,    "31K",      "color: black"],
-    ["Religion related",                20443,    "20K",      "color: black"],
-    ["Envionment and animals",          14591,    "15K",      "color: black"],
-    ["Hospitals/primary care",          7113,     "7K",       "color: black"],
-    ["International",                   6927,     "7K",       "color: black"],
-    ["Higher Education",                2153,     "2K",       "color: black"]
+    ["Human Services",                  110801,   "111K",     "color: #1696d2"],
+    ["Education",                       54214,    "54K",      "color: #1696d2"],
+    ["Other Education",                 52061,    "52K",      "color: #1696d2"],
+    ["Health",                          38861,    "39K",      "color: #1696d2"],
+    ["Other public and social benefit", 37478,    "37K",      "color: #1696d2"],
+    ["Other health care",               31748,    "32K",      "color: #1696d2"],
+    ["Arts",                            31429,    "31K",      "color: #1696d2"],
+    ["Religion related",                20443,    "20K",      "color: #1696d2"],
+    ["Envionment and animals",          14591,    "15K",      "color: #1696d2"],
+    ["Hospitals/primary care",          7113,     "7K",       "color: #1696d2"],
+    ["International",                   6927,     "7K",       "color: #1696d2"],
+    ["Higher Education",                2153,     "2K",       "color: #1696d2"]
   ]);
   
 
 var options = {
     title:'Nonprofits Registered with the IRS',
+    titleTextStyle: {fontSize: 20, color: '#062635'},
     legend: {position: "none"},
-    chartArea:{left: 250, right: 0, width:"100%",height:"500px"},
+    chartArea:{left: 250, right: 0, bottom: 75, width:"100%",height:"80%"},
     vAxis: {minValue: 1000000, maxValue: 1650000, format: "short"}, //Set min to 0?
     annotations: {alwaysOutside: true, stemColor: 'none'},
     backgroundColor: { fill:'transparent' },
     fontName: 'Karla', 
     fontSize: '16',
+    hAxis: {title: "Number of Organizations in 2015"}
   };
   
 var chart = new google.visualization.BarChart(document.getElementById('five'));
@@ -262,38 +277,100 @@ chart.draw(data, options);
 function publictypechange() {
   var data = google.visualization.arrayToDataTable([
     ['Type',                                  '2005',  '2015',    {role: 'annotation'}, {role: 'style'}],
-    ["International",                         0,       17.8,     "17.8%",     "color: green"],
-    ["Higher Education",                      0,       13.2,     "13.2%",     "color: green"],
-    ["Envionment and animals",                0,       12.8,     "12.8%",     "color: green"],
-    ["Religion related",                      0,       8.2,      "8.2%",      "color: green"],
-    ["Human Services",                        0,       4.4,      "4.4%",      "color: green"],
-    ["All public charities",                  0,       0.6,      "0.6%",      "color: blue"],
-    ["Hospitals/primary care",                0,       -0.5,     "-0.5%",     "color: red"],
-    ["Other public and social benefit",       0,       -2.4,     "-2.4%",     "color: red"],
-    ["Education",                             0,       -3.3,     "-3.3%",     "color: red"],
-    ["Other Education",                       0,       -4,       "-4%",       "color: red"],
-    ["Health",                                0,       -4.9,     "-4.9%",     "color: red"],
-    ["Other health care",                     0,       -5.9,     "-5.9%",     "color: red"],
-    ["Arts",                                  0,       -9.7,     "-9.7%",     "color: red"]
+    ["International",                         0,       17.8,     "17.8%",     "color: #55B748"],
+    ["Higher Education",                      0,       13.2,     "13.2%",     "color: #55B748"],
+    ["Envionment and animals",                0,       12.8,     "12.8%",     "color: #55B748"],
+    ["Religion related",                      0,       8.2,      "8.2%",      "color: #55B748"],
+    ["Human Services",                        0,       4.4,      "4.4%",      "color: #55B748"],
+    ["All public charities",                  0,       0.6,      "0.6%",      "color: #1696d2"],
+    ["Hospitals/primary care",                0,       -0.5,     "-0.5%",     "color: #DB2B27"],
+    ["Other public and social benefit",       0,       -2.4,     "-2.4%",     "color: #DB2B27"],
+    ["Education",                             0,       -3.3,     "-3.3%",     "color: #DB2B27"],
+    ["Other Education",                       0,       -4,       "-4%",       "color: #DB2B27"],
+    ["Health",                                0,       -4.9,     "-4.9%",     "color: #DB2B27"],
+    ["Other health care",                     0,       -5.9,     "-5.9%",     "color: #DB2B27"],
+    ["Arts",                                  0,       -9.7,     "-9.7%",     "color: #DB2B27"]
   ]);
   
   var options = {
       title:'Change in Number of Reporting Publich Charities from 2005 to 2015',
+      titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
-      chartArea:{left: 250, right: 20, width:"100%",height:"500px"},
+      chartArea:{left: 250, right: 20, bottom: 75, width:"100%",height:"80%"},
+      bar: {groupWidth: "100%"},
       annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
       fontName: 'Karla', 
       fontSize: '16',
+      hAxis: {title: "% Change in Number of Organizations from 2005-2010"}
     };
     
   var chart = new google.visualization.BarChart(document.getElementById('six'));
   chart.draw(data, options);
   }
 
+// Chart Seven: Public Charities Finance Overview 
+function publicfinances() {
+  var data = google.visualization.arrayToDataTable([
+    ['Year', 'Revenue', 'Expenses', 'Assets'],
+    ['2005', 1424, 1307.7, 2506.4],
+    ['2010', 1641, 1576.9, 2904.1],
+    ['2015', 1978.6, 1838.9, 3668.6],
+  ]);
+  
+  var options = {
+      title:'Change in Finances for Reporting Public Charities',
+      titleTextStyle: {fontSize: 20, color: '#062635'},
+      legend: {position: "top"},
+      chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
+      annotations: {alwaysOutside: true, stemColor: 'none'},
+      backgroundColor: { fill:'transparent' },
+      fontName: 'Karla', 
+      fontSize: '16',
+      vAxis: {title: "$ Billions"},
+    };
+    
+  var chart = new google.visualization.LineChart(document.getElementById('seven'));
+  chart.draw(data, options);
+  }
 
 
-
+// Chart Eight: Public Charities by Type Overview
+function publicfinancesbubble() {
+  var data = google.visualization.arrayToDataTable([
+    ['Category', 'Revenue', 'Assets', 'Category', 'Number of Organizations'],
+    ['Arts',40.6, 127.9, "group", 31429],
+    ['Education',354.3, 1128.8, "group", 54214],
+    ['Higher education',230.9, 736.3, "group", 2153],
+    ['Other education',123.4, 392.5, "group", 52061],
+    ['Environment and animals',19.7, 47.8, "group", 14591],
+    ['Health',1160.5, 1574.1, "group", 38861],
+    ['Hospitals and primary care facilities',977.1, 1281.5, "group", 7113],
+    ['Other health care',183.4, 292.6, "group", 31748],
+    ['Human services',234.1, 357.1, "group", 110801],
+    ['International',38.5, 43.2, "group", 6927],
+    ['Other public and social benefit',111.3, 347.1, "group", 37478],
+    ['Religion related',19.6, 42.6, "group", 20443]
+  ]);
+  
+  var options = {
+      title:'Finances for Reporting Public Charities',
+      titleTextStyle: {fontSize: 20, color: '#062635'},
+      legend: {position: "top"},
+      chartArea:{left: 60, right: 0, width:"100%",height:"80%"},
+      annotations: {alwaysOutside: true, stemColor: 'none'},
+      backgroundColor: { fill:'transparent' },
+      fontName: 'Karla', 
+      fontSize: '16',
+      explorer: {maxZoomOut: 1.5, maxZoomIn: .25},
+      vAxis: {title: "Revenue ($ Billions)"},
+      hAxis: {title: "Assets ($ Billions)"},
+      sizeAxis: {minSize: 5, maxSize: 40}
+    };
+    
+  var chart = new google.visualization.BubbleChart(document.getElementById('eight'));
+  chart.draw(data, options);
+  }
 
 
 
@@ -322,6 +399,8 @@ $(window).resize(function(){
   reportingpublic();
   publictype();
   publictypechange();
+  publicfinances();
+  publicfinancesbubble();
 		});
 
 

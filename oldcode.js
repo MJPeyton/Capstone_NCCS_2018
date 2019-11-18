@@ -105,3 +105,39 @@ var options = {
 var chart = new google.visualization.ScatterChart(document.getElementById('six'));
 chart.draw(data, options);
 }
+
+
+// Chart Eight: Public Charities by Type Overview
+function publicfinancesbubble() {
+  var data = google.visualization.arrayToDataTable([
+    ['Category', 'Revenue', 'Assets', 'Category', 'Total Number'],
+    ['Arts',40.6, 127.9, "group", 31429],
+    ['Education',354.3, 1128.8, "group", 54214],
+    ['Higher education',230.9, 736.3, "group", 2153],
+    ['Other education',123.4, 392.5, "group", 52061],
+    ['Environment and animals',19.7, 47.8, "group", 14591],
+    ['Health',1160.5, 1574.1, "group", 38861],
+    ['Hospitals and primary care facilities',977.1, 1281.5, "group", 7113],
+    ['Other health care',183.4, 292.6, "group", 31748],
+    ['Human services',234.1, 357.1, "group", 110801],
+    ['International',38.5, 43.2, "group", 6927],
+    ['Other public and social benefit',111.3, 347.1, "group", 37478],
+    ['Religion related',19.6, 42.6, "group", 20443]
+  ]);
+  
+  var options = {
+      title:'Finances for Reporting Public Charities',
+      legend: {position: "top"},
+      chartArea:{left: 60, right: 0, width:"100%",height:"900px"},
+      annotations: {alwaysOutside: true, stemColor: 'none'},
+      backgroundColor: { fill:'transparent' },
+      fontName: 'Karla', 
+      fontSize: '16',
+      explorer: {maxZoomOut: 1.75,
+                  maxZoomIn: .75
+      }
+    };
+    
+  var chart = new google.visualization.BubbleChart(document.getElementById('eight'));
+  chart.draw(data, options);
+  }

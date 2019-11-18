@@ -1,0 +1,136 @@
+		body {
+			max-width: 700px;
+  			margin: auto;
+			padding: 30px;
+			background-color: #F5F5F5;
+			font-family: 'Karla', sans-serif;
+			
+		}
+		img {
+			width: 100%;
+  			height: auto;
+			max-width: 700px;
+			margin: auto;
+		}
+		
+		p {
+			font-size: 1.1rem;
+			line-height: 1.7rem;
+		}
+
+		.note {
+			padding: .5rem 1.5rem;
+			font-style: italic;
+			font-size: 1.1rem;
+			background-color: #FFFF00;
+		}
+
+		.quote {
+			font-size: 1.1rem;
+			line-height: 1.7rem;
+			padding: .5rem 3rem;
+		}
+		
+		.citation {
+			text-align: right;
+            font-size: 1rem;
+            font-style: italic;
+            color: gray;
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+
+        .citation_text {
+			text-align: right;
+            font-size: 1rem;
+            font-style: italic;
+            color: gray;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .citation a {
+            color: gray;
+        }
+
+		h1{
+            font-size: 3rem;
+            color: #0A4C6A;
+		}
+
+		h2{
+            font-size: 2rem;
+            margin-top: 60px;
+            color: #062635
+		}
+
+		h3{
+            font-size: 1.6rem;
+            color: #12719E;
+		}
+
+		h4{
+            font-size: 1.2rem;
+            color: #12719E;
+        }
+
+        li {
+            line-height: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .explain{
+            padding: 10px 30px;
+            margin: 40px;
+            background-color: #BCDEB4;
+        }
+
+        .explain h4 {
+            margin: 15px 0;
+            color: #2C5C2D;
+        }
+
+		input[type=text], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		button {
+			width: 100%;
+			background-color: #1696d2;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.vis {
+			width: 100%;
+			height: 500px;
+		}
+
+		.vis_stack {
+  			position: relative;
+		  	top: -500px;
+			height: 0px;
+			width: 100%;
+		}
+
+		#five {
+			height: 600px;
+		}
+
+		#six {
+			height: 650px;
+		}
+
+		#eight {
+			height: 900px;
+		}
