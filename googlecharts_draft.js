@@ -17,7 +17,7 @@ function nonprofits() {
     var data = google.visualization.arrayToDataTable([
     ['Object', 'Amount', {role: 'annotation'}, {role: 'style'}],
     ['Nonprofits in US', 1561616, "1.56 Million", "color: #062635"],
-    ['Something Else', 1300000, "1.3 Million", "color: #696969"],
+    ['Something Else', 1300000, "1.3 Million", "color: #db2b27"],
   ]);
 
   var options = {
@@ -25,10 +25,7 @@ function nonprofits() {
       titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
       chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
-      vAxis: {minValue: 0, maxValue: 1650000, format: "short", title: "Number of Organizations",
-      gridlines: {
-        color: 'transparent'
-    }}, 
+      vAxis: {minValue: 0, maxValue: 1650000, format: "short", title: "Number of Organizations"}, 
       annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
       fontName: 'Karla', 
@@ -42,10 +39,10 @@ function nonprofits() {
 // Chart Two: Nonprofits Over Time
 function nonprofitstime() {
   var data = google.visualization.arrayToDataTable([
-  ['Year', 'Amount', {role: 'annotation'}, {role: 'style'}, 'Start'],
-  ["2005", 1414343, "1.41 Million", "color: #062635", 1000000],
-  ["2010", 1493407, "1.49 Million", "color: #062635", 1000000],
-  ["2015", 1561616, "1.56 Million", "color: #062635", 1000000]
+  ['Year', 'Amount', {role: 'annotation'}, {role: 'style'}],
+  ["2005", 1414343, "1.41 Million", "color: #062635"],
+  ["2010", 1493407, "1.49 Million", "color: #062635"],
+  ["2015", 1561616, "1.56 Million", "color: #062635"]
 ]);
 
 var options = {
@@ -53,17 +50,11 @@ var options = {
     titleTextStyle: {fontSize: 20, color: '#062635'},
     legend: {position: "none"},
     chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
-    vAxis: {minValue: 1000000, maxValue: 1650000, format: "short", title: "Number of Organizations",
-        gridlines: {
-          color: 'transparent'
-        }
-      }, 
+    vAxis: {minValue: 1000000, maxValue: 1650000, format: "short", title: "Number of Organizations"}, //Set min to 0?
     annotations: {alwaysOutside: true, stemColor: 'none'},
     backgroundColor: { fill:'transparent' },
     fontName: 'Karla', 
     fontSize: '16',
-    seriesType: 'bars',
-    series: {1: {type: 'line', color: 'black', lineWidth: 1}}
   };
   
 var chart = new google.visualization.ColumnChart(document.getElementById('two'));
@@ -347,49 +338,31 @@ function publicfinances() {
 // Chart Eight: Public Charities by Type Overview
 function publicfinancesbubble() {
   var data = google.visualization.arrayToDataTable([
-    ['Category',                          'Revenue', 'Assets', 'Category', 'Number of Organizations'],
-    ['Arts',                                  10,  0, "group",  31429  ],
-    ['Education',                             20,  0, "group",  54214  ],
-    ['Higher education',                      30,  0, "group",  2153   ],
-    ['Other education',                       40,  0, "group",  52061  ],
-    ['Environment and animals',               50,  0, "group",  14591  ],
-    ['Health',                                60,  0, "group",  38861  ],
-    ['Hospitals and primary care facilities', 70,  0, "group",  7113   ],
-    ['Other health care',                     80,  0, "group",  31748  ],
-    ['Human services',                        90,  0, "group",  110801 ],
-    ['International',                         100, 0, "group",  6927   ],
-    ['Other public and social benefit',       110, 0, "group",  37478  ],
-    ['Religion related',                      120, 0, "group",  20443  ]
+    ['Category', 'Revenue', 'Assets', 'Category', 'Number of Organizations'],
+    ['Arts',40.6, 127.9, "group", 31429],
+    ['Education',354.3, 1128.8, "group", 54214],
+    ['Higher education',230.9, 736.3, "group", 2153],
+    ['Other education',123.4, 392.5, "group", 52061],
+    ['Environment and animals',19.7, 47.8, "group", 14591],
+    ['Health',1160.5, 1574.1, "group", 38861],
+    ['Hospitals and primary care facilities',977.1, 1281.5, "group", 7113],
+    ['Other health care',183.4, 292.6, "group", 31748],
+    ['Human services',234.1, 357.1, "group", 110801],
+    ['International',38.5, 43.2, "group", 6927],
+    ['Other public and social benefit',111.3, 347.1, "group", 37478],
+    ['Religion related',19.6, 42.6, "group", 20443]
   ]);
-
-  /*function publicfinancesbubble() {
-    var data = google.visualization.arrayToDataTable([
-      ['Category',                          'Revenue', 'Assets', 'Category', 'Number of Organizations'],
-      ['Arts',                                  40.6,   127.9,    "group",  31429],
-      ['Education',                             354.3,  1128.8,   "group",  54214],
-      ['Higher education',                      230.9,  736.3,    "group",  2153],
-      ['Other education',                       123.4,  392.5,    "group",  52061],
-      ['Environment and animals',               19.7,   47.8,     "group",  14591],
-      ['Health',                                1160.5, 1574.1,   "group",  38861],
-      ['Hospitals and primary care facilities', 977.1,  1281.5,   "group",  7113],
-      ['Other health care',                     183.4,  292.6,    "group",  31748],
-      ['Human services',                        234.1,  357.1,    "group",  110801],
-      ['International',                         38.5,   43.2,     "group",  6927],
-      ['Other public and social benefit',       111.3,  347.1,    "group",  37478],
-      ['Religion related',                      19.6,   42.6,     "group",  20443]
-    ]);
-    */
   
   var options = {
       title:'Finances for Reporting Public Charities',
       titleTextStyle: {fontSize: 20, color: '#062635'},
-      legend: {position: "none"},
+      legend: {position: "top"},
       chartArea:{left: 60, right: 0, width:"100%",height:"80%"},
       annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
       fontName: 'Karla', 
       fontSize: '16',
-      // explorer: {maxZoomOut: 1.5, maxZoomIn: .25},
+      explorer: {maxZoomOut: 1.5, maxZoomIn: .25},
       vAxis: {title: "Revenue ($ Billions)"},
       hAxis: {title: "Assets ($ Billions)"},
       sizeAxis: {minSize: 5, maxSize: 40}
