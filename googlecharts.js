@@ -1,6 +1,6 @@
 
 // Load google charts
-google.charts.load('current', {'packages':['corechart', 'bar']});
+google.charts.load('current', {'packages':['corechart', 'bar', 'treemap']});
 
 // Draw the the individual charts.
 google.charts.setOnLoadCallback(nonprofits);
@@ -9,8 +9,9 @@ google.charts.setOnLoadCallback(public);
 google.charts.setOnLoadCallback(reportingpublic);
 google.charts.setOnLoadCallback(publictype);
 google.charts.setOnLoadCallback(publictypechange);
-google.charts.setOnLoadCallback(publicfinances);
-google.charts.setOnLoadCallback(publicfinancesbubble);
+google.charts.setOnLoadCallback(revenuechange);
+google.charts.setOnLoadCallback(assetchange);
+google.charts.setOnLoadCallback(orgtree);
 
 // Chart One: Nonprofits
 function nonprofits() {
@@ -236,7 +237,6 @@ function reportingpublic() {
     fontSize: '16',
   };
 
-
   var chart1 = new google.visualization.ColumnChart(document.getElementById('four_0'));
   var chart2 = new google.visualization.ColumnChart(document.getElementById('four_1'));
   var chart3 = new google.visualization.ColumnChart(document.getElementById('four_2'));
@@ -318,19 +318,58 @@ function publictypechange() {
   chart.draw(data, options);
   }
 
-// Chart Seven: Public Charities Finance Overview 
-function publicfinances() {
+
+// Chart 7-1: Revenue Change from 2005-2015
+function revenuechange() {
   var data = google.visualization.arrayToDataTable([
-    ['Year', 'Revenue', 'Expenses', 'Assets'],
-    ['2005', 1424, 1307.7, 2506.4],
-    ['2010', 1641, 1576.9, 2904.1],
-    ['2015', 1978.6, 1838.9, 3668.6],
+    ['Category'
+    ,'Arts'
+    ,'Education'
+    ,'Higher education'
+    ,'Other education'
+    ,'Environment and animals'
+    ,'Health'
+    ,'Hospitals and primary care facilities'
+    ,'Other health care'
+    ,'Human services'
+    ,'International'
+    ,'Other public and social benefit'
+    ,'Religion related'
+    ],
+    ['2005 Revenue'
+    ,31.7
+    ,251.7
+    ,166.3
+    ,85.4
+    ,13.0
+    ,817.2
+    ,689.3
+    ,127.9
+    ,185.3
+    ,30.5
+    ,82.3
+    ,12.3
+    ],
+    ['2015 Revenue'
+    ,40.6
+    ,354.3
+    ,230.9
+    ,123.4
+    ,19.7
+    ,1160.5
+    ,977.1
+    ,183.4
+    ,234.1
+    ,38.5
+    ,111.3
+    ,19.6
+    ]
   ]);
   
   var options = {
-      title:'Change in Finances for Reporting Public Charities',
+      title:'Change in Revenue (2005-2015) by Category',
       titleTextStyle: {fontSize: 20, color: '#062635'},
-      legend: {position: "top"},
+      legend: {position: "none"},
       chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
       annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
@@ -339,65 +378,119 @@ function publicfinances() {
       vAxis: {title: "$ Billions"},
     };
     
-  var chart = new google.visualization.LineChart(document.getElementById('seven'));
+  var chart = new google.visualization.LineChart(document.getElementById('seven_one'));
+  chart.draw(data, options);
+  }
+
+// Chart 7-2: Asset Change from 2005-2015
+function assetchange() {
+  var data = google.visualization.arrayToDataTable([
+    ['Category'
+    ,'Arts'
+    ,'Education'
+    ,'Higher education'
+    ,'Other education'
+    ,'Environment and animals'
+    ,'Health'
+    ,'Hospitals and primary care facilities'
+    ,'Other health care'
+    ,'Human services'
+    ,'International'
+    ,'Other public and social benefit'
+    ,'Religion related'
+    ],
+    ['2005 Assets'
+    ,98.3
+    ,783.1
+    ,527.6
+    ,255.5
+    ,32.0
+    ,1000.8
+    ,790.1
+    ,210.7
+    ,274.3
+    ,28.5
+    ,262.5
+    ,26.9
+    ],
+    ['2015 Assets'
+    ,127.9
+    ,1128.8
+    ,736.3
+    ,392.5
+    ,47.8
+    ,1574.1
+    ,1281.5
+    ,292.6
+    ,357.1
+    ,43.2
+    ,347.1
+    ,42.6
+    ]
+  ]);
+  
+  var options = {
+      title:'Change in Assets (2005-2015) by Category',
+      titleTextStyle: {fontSize: 20, color: '#062635'},
+      legend: {position: "none"},
+      chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
+      annotations: {alwaysOutside: true, stemColor: 'none'},
+      backgroundColor: { fill:'transparent' },
+      fontName: 'Karla', 
+      fontSize: '16',
+      vAxis: {title: "$ Billions"},
+    };
+    
+  var chart = new google.visualization.LineChart(document.getElementById('seven_two'));
   chart.draw(data, options);
   }
 
 
 // Chart Eight: Public Charities by Type Overview
-function publicfinancesbubble() {
+function orgtree() {
   var data = google.visualization.arrayToDataTable([
-    ['Category',                          'Revenue', 'Assets', 'Category', 'Number of Organizations'],
-    ['Arts',                                  10,  0, "group",  31429  ],
-    ['Education',                             20,  0, "group",  54214  ],
-    ['Higher education',                      30,  0, "group",  2153   ],
-    ['Other education',                       40,  0, "group",  52061  ],
-    ['Environment and animals',               50,  0, "group",  14591  ],
-    ['Health',                                60,  0, "group",  38861  ],
-    ['Hospitals and primary care facilities', 70,  0, "group",  7113   ],
-    ['Other health care',                     80,  0, "group",  31748  ],
-    ['Human services',                        90,  0, "group",  110801 ],
-    ['International',                         100, 0, "group",  6927   ],
-    ['Other public and social benefit',       110, 0, "group",  37478  ],
-    ['Religion related',                      120, 0, "group",  20443  ]
+    ['Category',                              'Parent',  'Number of Organizations', ],
+    ['Public Charities',                                         ,    314744 ,  ],
+    ['Arts',                                  'Public Charities',     31429  ,  ],
+    ['Education',                             'Public Charities',     54214  ,  ],
+    ['Higher education',                      'Public Charities',     2153   ,  ],
+    ['Other education',                       'Public Charities',     52061  ,  ],
+    ['Environment and animals',               'Public Charities',     14591  ,  ],
+    ['Health',                                'Public Charities',     38861  ,  ],
+    ['Hospitals and primary care facilities', 'Public Charities',     7113   ,  ],
+    ['Other health care',                     'Public Charities',     31748  ,  ],
+    ['Human services',                        'Public Charities',     110801 ,  ],
+    ['International',                         'Public Charities',     6927   ,  ],
+    ['Other public and social benefit',       'Public Charities',     37478  ,  ],
+    ['Religion related',                      'Public Charities',     20443  ,  ]
   ]);
 
-  /*function publicfinancesbubble() {
-    var data = google.visualization.arrayToDataTable([
-      ['Category',                          'Revenue', 'Assets', 'Category', 'Number of Organizations'],
-      ['Arts',                                  40.6,   127.9,    "group",  31429],
-      ['Education',                             354.3,  1128.8,   "group",  54214],
-      ['Higher education',                      230.9,  736.3,    "group",  2153],
-      ['Other education',                       123.4,  392.5,    "group",  52061],
-      ['Environment and animals',               19.7,   47.8,     "group",  14591],
-      ['Health',                                1160.5, 1574.1,   "group",  38861],
-      ['Hospitals and primary care facilities', 977.1,  1281.5,   "group",  7113],
-      ['Other health care',                     183.4,  292.6,    "group",  31748],
-      ['Human services',                        234.1,  357.1,    "group",  110801],
-      ['International',                         38.5,   43.2,     "group",  6927],
-      ['Other public and social benefit',       111.3,  347.1,    "group",  37478],
-      ['Religion related',                      19.6,   42.6,     "group",  20443]
-    ]);
-    */
-  
   var options = {
-      title:'Finances for Reporting Public Charities',
+      title:'Reporting Public Charities by Type',
       titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
       chartArea:{left: 60, right: 0, width:"100%",height:"80%"},
-      annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
       fontName: 'Karla', 
       fontSize: '16',
-      // explorer: {maxZoomOut: 1.5, maxZoomIn: .25},
-      vAxis: {title: "Revenue ($ Billions)"},
-      hAxis: {title: "Assets ($ Billions)"},
-      sizeAxis: {minSize: 5, maxSize: 40}
+      highlightOnMouseOver: true,
+      headerHeight: 0,
+      minColor: '#a2d4ec',
+      midColor: '#1696d2',
+      maxColor: '#12719e',
+      showScale: true,
+      generateTooltip: showFullTooltip
     };
     
-  var chart = new google.visualization.BubbleChart(document.getElementById('eight'));
+  var chart = new google.visualization.TreeMap(document.getElementById('eight'));
   chart.draw(data, options);
+
+
+  function showFullTooltip(row, size, value) {
+    return '<div style="background:#d2d2d2; padding:10px; border-style:none">' +
+           '<span style="font-family:Karla">' + data.getValue(row, 0) + ': ' + data.getValue(row, 2);
   }
+}
 
 
 
@@ -426,8 +519,9 @@ $(window).resize(function(){
   reportingpublic();
   publictype();
   publictypechange();
-  publicfinances();
-  publicfinancesbubble();
+  revenuechange();
+  assetchange();
+  orgtree();
 		});
 
 

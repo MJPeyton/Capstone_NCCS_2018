@@ -141,3 +141,30 @@ function publicfinancesbubble() {
   var chart = new google.visualization.BubbleChart(document.getElementById('eight'));
   chart.draw(data, options);
   }
+
+
+
+  // Chart Seven: Public Charities Finance Overview 
+function publicfinances() {
+  var data = google.visualization.arrayToDataTable([
+    ['Year', 'Revenue', 'Expenses', 'Assets'],
+    ['2005', 1424, 1307.7, 2506.4],
+
+    ['2015', 1978.6, 1838.9, 3668.6],
+  ]);
+  
+  var options = {
+      title:'Change in Finances for Reporting Public Charities',
+      titleTextStyle: {fontSize: 20, color: '#062635'},
+      legend: {position: "top"},
+      chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
+      annotations: {alwaysOutside: true, stemColor: 'none'},
+      backgroundColor: { fill:'transparent' },
+      fontName: 'Karla', 
+      fontSize: '16',
+      vAxis: {title: "$ Billions"},
+    };
+    
+  var chart = new google.visualization.LineChart(document.getElementById('seven'));
+  chart.draw(data, options);
+  }
