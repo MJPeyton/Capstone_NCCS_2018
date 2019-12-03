@@ -1,11 +1,55 @@
-		body {
+		.navBar {
+			max-width: 3000px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-top: 25px;
+			padding-bottom: 10px;
+		}
+
+		nav {
+			background: linear-gradient(135deg, #062635 0%, #1696d2 100%);
+		}
+		
+		.footer {
+			background: linear-gradient(-1350deg, #062635 0%, #1696d2 100%);
+    		overflow: hidden;
+    		color: white;
+    		box-shadow: 0 50vh 0 50vh #2A5C90;
+		}
+
+		.header{
+		  background-image: url("https://images.pexels.com/photos/2255/black-and-white-city-houses-skyline.jpg");
+		  width:100vw;
+		  height: 100vh; 
+		  background-position: center;
+		  background-size: cover;
+		  background-color: #262223;
+		  overflow-x: hidden;
+		}
+
+		.header_text {
 			max-width: 700px;
-  			margin: auto;
-			padding: 30px;
+			margin: auto;
+		  	padding: 0px 30px;
+			align-items: center;
+		
+		}
+		
+		body {
 			background-color: #f5f5f5;
 			font-family: 'Karla', sans-serif;
-			
+			margin: 0;
+			padding: 0;
+			overflow-x: hidden;
 		}
+
+		.content {
+			max-width: 700px;
+  			margin: auto;
+			padding: 0px 30px;
+			overflow-x: hidden;
+		}
+
 		img {
 			width: 100%;
   			height: auto;
@@ -72,6 +116,12 @@
 		h4{
             font-size: 1.2rem;
             color: #12719E;
+		}
+		
+		h5{
+            font-size: 1.3rem;
+			color: #062635;
+			margin-bottom: 0;
         }
 
         li {
@@ -92,10 +142,15 @@
 		
 		.dark {
 			padding: 3rem 9999rem;
-			background-color: #1a1717;
+			background-color: #262223;
 			margin: 0 -9999rem;
 			overflow-x: hidden;
 			color: white;
+		}
+
+		.dark_content {
+			max-width: 700px;
+			margin: auto;
 		}
 
 		.dark .explain p {

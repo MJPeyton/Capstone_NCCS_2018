@@ -21,7 +21,8 @@ function nonprofits() {
 
   var options = {
       title:'Nonprofits Registered with the IRS',
-      titleTextStyle: {fontSize: 20, color: '#062635'},
+      titlePosition: 'none',
+      titleTextStyle: {position: 'none', fontSize: 20, color: '#062635'},
       legend: {position: "none"},
       chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
       vAxis: {minValue: 0, maxValue: 1650000, format: "short", title: "Number of Organizations",
@@ -49,6 +50,7 @@ function nonprofitstime() {
 
 var options = {
     title:'Nonprofits Registered with the IRS',
+    titlePosition: 'none',
     titleTextStyle: {fontSize: 20, color: '#062635'},
     legend: {position: "none"},
     chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
@@ -73,13 +75,14 @@ chart.draw(data, options);
 function public() {
   var data = google.visualization.arrayToDataTable([
     ['Category',                   'Amount',         {role: 'annotation'}, {role: 'style'}],
-    ["Registered Nonprofits",       1561616,         "1.56 Million",        '#848081'],
-    ["Public Charities",            1088447,         "1.08 Million",        '#fdd870'],
+    ["Registered Nonprofits",       1561616,         "1.56 Million",        '#dcdbdb'],
+    ["Public Charities",            1088447,         "1.08 Million",        '#a2d4ec'],
     ["Reporting Public Charities",  314744,          "0.3 Million",         '#1696d2']
   ]);
 
   var options = {
     title:'Reporting Public Entities as a part of All Nonprofits in 2015',
+    titlePosition: 'none',
     titleTextStyle: {fontSize: 20, color: 'white'},
     legend: {position: "none"},
     chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
@@ -143,6 +146,7 @@ function publictype() {
 
 var options = {
     title:'Nonprofits Registered with the IRS',
+    titlePosition: 'none',
     titleTextStyle: {fontSize: 20, color: '#062635'},
     legend: {position: "none"},
     chartArea:{left: 250, right: 0, bottom: 75, width:"100%",height:"80%"},
@@ -179,6 +183,7 @@ function publictypechange() {
   
   var options = {
       title:'Change in Number of Reporting Publich Charities from 2005 to 2015',
+      titlePosition: 'none',
       titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
       chartArea:{left: 250, right: 20, bottom: 75, width:"100%",height:"80%"},
@@ -242,14 +247,17 @@ function publictypechange() {
   
   var options = {
       title:'Change in Revenue (2005-2015) by Category',
+      titlePosition: 'none',
       titleTextStyle: {fontSize: 20, color: '#062635'},
-      legend: {position: "none"},
+      legend: {position: "top", maxLines: 5, textStyle: {fontSize: '14'}},
       chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
       annotations: {alwaysOutside: true, stemColor: 'none'},
       backgroundColor: { fill:'transparent' },
       fontName: 'Karla', 
       fontSize: '16',
-      vAxis: {title: "$ Billions"},
+      pointSize: '10',
+      vAxis: {title: "$ Billions", gridlines: {color: 'transparent'}},
+      hAxis: {gridlines: {color: 'black', count: 2}}
     };
     
   var chart = new google.visualization.LineChart(document.getElementById('seven'));
@@ -276,7 +284,8 @@ function assets() {
   ]);
 
   var options = {
-      title:'Assets of Reporting Public Charities by Type',
+      title:' ',
+      titlePosition: 'none',
       titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
       chartArea:{left: 60, right: 0, width:"100%",height:"80%"},
@@ -302,31 +311,12 @@ function assets() {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Responsive Charts 
 
 $(window).resize(function(){
   nonprofits();
   nonprofitstime();
   public();
-  reportingpublic();
   publictype();
   publictypechange();
   revenuechange();
