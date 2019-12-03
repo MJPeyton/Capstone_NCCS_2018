@@ -2,7 +2,7 @@
 			max-width: 700px;
   			margin: auto;
 			padding: 30px;
-			background-color: #F5F5F5;
+			background-color: #f5f5f5;
 			font-family: 'Karla', sans-serif;
 			
 		}
@@ -88,7 +88,27 @@
         .explain h4 {
             margin: 15px 0;
             color: #2C5C2D;
-        }
+		}
+		
+		.dark {
+			padding: 3rem 9999rem;
+			background-color: #1a1717;
+			margin: 0 -9999rem;
+			overflow-x: hidden;
+			color: white;
+		}
+
+		.dark .explain p {
+			color: #1a2e19;
+		}
+
+		.dark .explain li {
+			color: #1a2e19;
+		}
+
+		.dark a {
+			color: gray;
+		}
 
 		input[type=text], select {
 			width: 100%;
@@ -116,19 +136,16 @@
 			height: 500px;
 		}
 
-		.vis_stack {
-  			position: relative;
-		  	top: -500px;
-			height: 0px;
-			width: 100%;
-		}
-
 		#five {
 			height: 600px;
 		}
 
 		#six {
 			height: 650px;
+		}
+		
+		#seven {
+			height: 800px;
 		}
 
 		#eight {

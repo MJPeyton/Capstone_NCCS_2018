@@ -6,19 +6,17 @@ google.charts.load('current', {'packages':['corechart', 'bar', 'treemap']});
 google.charts.setOnLoadCallback(nonprofits);
 google.charts.setOnLoadCallback(nonprofitstime);
 google.charts.setOnLoadCallback(public);
-google.charts.setOnLoadCallback(reportingpublic);
 google.charts.setOnLoadCallback(publictype);
 google.charts.setOnLoadCallback(publictypechange);
 google.charts.setOnLoadCallback(revenuechange);
-google.charts.setOnLoadCallback(assetchange);
-google.charts.setOnLoadCallback(orgtree);
+google.charts.setOnLoadCallback(assets);
 
 // Chart One: Nonprofits
 function nonprofits() {
     var data = google.visualization.arrayToDataTable([
     ['Object', 'Amount', {role: 'annotation'}, {role: 'style'}],
     ['Nonprofits in US', 1561616, "1.56 Million", "color: #062635"],
-    ['Something Else', 1300000, "1.3 Million", "color: #696969"],
+    ['Restaurants in the US', 647288, "0.6 Million", "color: #696969"],
   ]);
 
   var options = {
@@ -71,180 +69,58 @@ var chart = new google.visualization.ColumnChart(document.getElementById('two'))
 chart.draw(data, options);
 }
 
-// Chart Three: Public Charities
+// Chart Three: Reporting Public Charities as part of Whole
 function public() {
-  var data0 = google.visualization.arrayToDataTable([
-    ['Year', 'All Nonprofits', {role: 'annotation'}],
-    ["2005", 1414343,          "1.41 Million"],
-    ["2010", 1493407,          "1.49 Million"],
-    ["2015", 1561616,          "1.56 Million"]
+  var data = google.visualization.arrayToDataTable([
+    ['Category',                   'Amount',         {role: 'annotation'}, {role: 'style'}],
+    ["Registered Nonprofits",       1561616,         "1.56 Million",        '#848081'],
+    ["Public Charities",            1088447,         "1.08 Million",        '#fdd870'],
+    ["Reporting Public Charities",  314744,          "0.3 Million",         '#1696d2']
   ]);
 
-  var data1 = google.visualization.arrayToDataTable([
-    ['Year', 'Public Charities', {role: 'annotation'}],
-    ["2005", 847946,              "850K"],
-    ["2010", 979883,              "980K"],
-    ["2015", 1088447,             "1,088K"]
-  ]);
-  
-  var options0 = {
-    title:'Public Entities as a part of All Nonprofits',
-    titleTextStyle: {fontSize: 20, color: 'none'},
+  var options = {
+    title:'Reporting Public Entities as a part of All Nonprofits in 2015',
+    titleTextStyle: {fontSize: 20, color: 'white'},
+    legend: {position: "none"},
     chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
     annotations: {alwaysOutside: true, stemColor: 'none'},
     backgroundColor: 'transparent',
-    colors: ['#062635'],
+    colors: ['#1696d2'],
     height: 500,
-    legend: {
-      position: 'top'
+    bar: {
+      groupWidth: '100%'
+    },
+    hAxis:{
+      textStyle: {
+        color: "white"
+      }
     },
     vAxis: {
+      baselineColor: '#CCCCCC',
       format: 'short',
       title: "Number of Organizations",
       viewWindow: {
         min: 0,
         max: 1750000
+      },
+      gridlines: {
+        color: 'transparent'
+      },
+      titleTextStyle : {
+        color: 'white'
+      },
+      textStyle: {
+        color: "white"
       }
     },
     fontName: 'Karla', 
     fontSize: '16',
   };
 
-  var options1 = {
-    title:'Public Entities as a part of All Nonprofits',
-    titleTextStyle: {fontSize: 20, color: '#062635'},
-    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
-    annotations: {alwaysOutside: true, stemColor: 'none'},
-    vAxis: {format: "short"},
-    backgroundColor: 'transparent',
-    colors: ['#fdbf11'],
-    height: 500,
-    legend: {
-      position: 'top',
-      alignment: 'center'
-    },
-    vAxis: {
-      format: 'short',
-      ticks: [{v: 0, f: ''}],
-      viewWindow: {
-        min: 0,
-        max: 1750000
-      }
-    },
-    fontName: 'Karla', 
-    fontSize: '16',
-  };
-
-  var chart1 = new google.visualization.ColumnChart(document.getElementById('three_0'));
-  var chart2 = new google.visualization.ColumnChart(document.getElementById('three_1'));
-
-  chart1.draw(data0, options0);
-  chart2.draw(data1, options1);
+  var chart = new google.visualization.ColumnChart(document.getElementById('three'));
+  chart.draw(data, options);
 }
 
-// Chart four: Reporting Public Charities
-function reportingpublic() {
-  var data0 = google.visualization.arrayToDataTable([
-    ['Year', 'All Nonprofits', {role: 'annotation'}],
-    ["2005", 1414343,          "1.41 Million"],
-    ["2010", 1493407,          "1.49 Million"],
-    ["2015", 1561616,          "1.56 Million"]
-  ]);
-
-  var data1 = google.visualization.arrayToDataTable([
-    ['Year', 'Public Charities', {role: 'annotation'}],
-    ["2005", 847946,              "850K"],
-    ["2010", 979883,              "980K"],
-    ["2015", 1088447,             "1,088K"]
-  ]);
-
-  var data2 = google.visualization.arrayToDataTable([
-    ['Year', 'Reporting Public Charities', {role: 'annotation'}],
-    ["2005", 312778,              "313K"],
-    ["2010", 293265,              "293K"],
-    ["2015", 314744,             "315K"]
-  ]);
-  
-  var options0 = {
-    title:'Reporting Public Entities as a part of All Nonprofits',
-    titleTextStyle: {fontSize: 20, color: '#062635'},
-    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
-    annotations: {alwaysOutside: true, stemColor: 'none'},
-    backgroundColor: 'transparent',
-    colors: ['#062635'],
-    height: 500,
-    legend: {
-      position: 'top'
-    },
-    vAxis: {
-      format: 'short',
-      viewWindow: {
-        min: 0,
-        max: 1750000
-      }
-    },
-    fontName: 'Karla', 
-    fontSize: '16',
-  };
-
-  var options1 = {
-    title:'Reporting Public Entities as a part of All Nonprofits',
-    titleTextStyle: {fontSize: 20, color: 'none'},
-    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
-    annotations: {alwaysOutside: true, stemColor: 'none'},
-    vAxis: {format: "short"},
-    backgroundColor: 'transparent',
-    colors: ['#fdbf11'],
-    height: 500,
-    legend: {
-      position: 'top',
-      alignment: 'center'
-    },
-    vAxis: {
-      format: 'short',
-      ticks: [{v: 0, f: ''}],
-      viewWindow: {
-        min: 0,
-        max: 1750000
-      }
-    },
-    fontName: 'Karla', 
-    fontSize: '16',
-  };
-
-  var options2 = {
-    title:'Reporting Public Entities as a part of All Nonprofits',
-    titleTextStyle: {fontSize: 20, color: 'none'},
-    chartArea:{left: 100, right: 0, width:"100%",height:"80%"},
-    annotations: {alwaysOutside: true, stemColor: 'none'},
-    vAxis: {format: "short"},
-    backgroundColor: 'transparent',
-    colors: ['#1696d2'],
-    height: 500,
-    legend: {
-      position: 'top',
-      alignment: 'end'
-    },
-    vAxis: {
-      format: 'short',
-      ticks: [{v: 0, f: ''}],
-      viewWindow: {
-        min: 0,
-        max: 1750000
-      }
-    },
-    fontName: 'Karla', 
-    fontSize: '16',
-  };
-
-  var chart1 = new google.visualization.ColumnChart(document.getElementById('four_0'));
-  var chart2 = new google.visualization.ColumnChart(document.getElementById('four_1'));
-  var chart3 = new google.visualization.ColumnChart(document.getElementById('four_2'));
-
-  chart1.draw(data0, options0);
-  chart2.draw(data1, options1);
-  chart3.draw(data2, options2);
-}
 
 // Chart Five: Public Charities by Type
 function publictype() {
@@ -317,10 +193,8 @@ function publictypechange() {
   var chart = new google.visualization.BarChart(document.getElementById('six'));
   chart.draw(data, options);
   }
-
-
-// Chart 7-1: Revenue Change from 2005-2015
-function revenuechange() {
+ // Chart 7: Revenue Change from 2005-2015
+ function revenuechange() {
   var data = google.visualization.arrayToDataTable([
     ['Category'
     ,'Arts'
@@ -378,95 +252,31 @@ function revenuechange() {
       vAxis: {title: "$ Billions"},
     };
     
-  var chart = new google.visualization.LineChart(document.getElementById('seven_one'));
+  var chart = new google.visualization.LineChart(document.getElementById('seven'));
   chart.draw(data, options);
   }
-
-// Chart 7-2: Asset Change from 2005-2015
-function assetchange() {
-  var data = google.visualization.arrayToDataTable([
-    ['Category'
-    ,'Arts'
-    ,'Education'
-    ,'Higher education'
-    ,'Other education'
-    ,'Environment and animals'
-    ,'Health'
-    ,'Hospitals and primary care facilities'
-    ,'Other health care'
-    ,'Human services'
-    ,'International'
-    ,'Other public and social benefit'
-    ,'Religion related'
-    ],
-    ['2005 Assets'
-    ,98.3
-    ,783.1
-    ,527.6
-    ,255.5
-    ,32.0
-    ,1000.8
-    ,790.1
-    ,210.7
-    ,274.3
-    ,28.5
-    ,262.5
-    ,26.9
-    ],
-    ['2015 Assets'
-    ,127.9
-    ,1128.8
-    ,736.3
-    ,392.5
-    ,47.8
-    ,1574.1
-    ,1281.5
-    ,292.6
-    ,357.1
-    ,43.2
-    ,347.1
-    ,42.6
-    ]
-  ]);
-  
-  var options = {
-      title:'Change in Assets (2005-2015) by Category',
-      titleTextStyle: {fontSize: 20, color: '#062635'},
-      legend: {position: "none"},
-      chartArea:{left: 80, right: 0, width:"100%",height:"80%"},
-      annotations: {alwaysOutside: true, stemColor: 'none'},
-      backgroundColor: { fill:'transparent' },
-      fontName: 'Karla', 
-      fontSize: '16',
-      vAxis: {title: "$ Billions"},
-    };
-    
-  var chart = new google.visualization.LineChart(document.getElementById('seven_two'));
-  chart.draw(data, options);
-  }
-
 
 // Chart Eight: Public Charities by Type Overview
-function orgtree() {
+function assets() {
   var data = google.visualization.arrayToDataTable([
     ['Category',                              'Parent',  'Number of Organizations', ],
-    ['Public Charities',                                         ,    314744 ,  ],
-    ['Arts',                                  'Public Charities',     31429  ,  ],
-    ['Education',                             'Public Charities',     54214  ,  ],
-    ['Higher education',                      'Public Charities',     2153   ,  ],
-    ['Other education',                       'Public Charities',     52061  ,  ],
-    ['Environment and animals',               'Public Charities',     14591  ,  ],
-    ['Health',                                'Public Charities',     38861  ,  ],
-    ['Hospitals and primary care facilities', 'Public Charities',     7113   ,  ],
-    ['Other health care',                     'Public Charities',     31748  ,  ],
-    ['Human services',                        'Public Charities',     110801 ,  ],
-    ['International',                         'Public Charities',     6927   ,  ],
-    ['Other public and social benefit',       'Public Charities',     37478  ,  ],
-    ['Religion related',                      'Public Charities',     20443  ,  ]
+    ['Public Charities',                                         ,     ,  ],
+    ['Arts',                                  'Public Charities',   127.9    ,  ],
+    ['Education',                             'Public Charities',   1128.8   ,  ],
+    ['Higher education',                      'Public Charities',   736.3    ,  ],
+    ['Other education',                       'Public Charities',   392.5    ,  ],
+    ['Environment and animals',               'Public Charities',   47.8     ,  ],
+    ['Health',                                'Public Charities',   1574.1   ,  ],
+    ['Hospitals and primary care facilities', 'Public Charities',   1281.5   ,  ],
+    ['Other health care',                     'Public Charities',   292.6    ,  ],
+    ['Human services',                        'Public Charities',   357.1    ,  ],
+    ['International',                         'Public Charities',   43.2     ,  ],
+    ['Other public and social benefit',       'Public Charities',   347.1    ,  ],
+    ['Religion related',                      'Public Charities',   42.6     ,  ]
   ]);
 
   var options = {
-      title:'Reporting Public Charities by Type',
+      title:'Assets of Reporting Public Charities by Type',
       titleTextStyle: {fontSize: 20, color: '#062635'},
       legend: {position: "none"},
       chartArea:{left: 60, right: 0, width:"100%",height:"80%"},
@@ -520,8 +330,7 @@ $(window).resize(function(){
   publictype();
   publictypechange();
   revenuechange();
-  assetchange();
-  orgtree();
+  assets();
 		});
 
 
