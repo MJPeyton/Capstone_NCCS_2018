@@ -72,7 +72,8 @@
 		.quote {
 			font-size: 1.1rem;
 			line-height: 1.7rem;
-			padding: .5rem 3rem;
+			padding: .5rem 4rem;
+			font-style: italic;
 		}
 		
 		.citation {
@@ -151,6 +152,7 @@
 		.dark_content {
 			max-width: 700px;
 			margin: auto;
+			padding: 0px 30px;
 		}
 
 		.dark .explain p {
